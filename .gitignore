@@ -1,1 +1,5 @@
 *.class
+.env
+.vs_code/
+node_modules/
+Binary Classifier/

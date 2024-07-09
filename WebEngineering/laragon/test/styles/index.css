@@ -1,0 +1,19 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.form-label {
+  font-size: large;
+  font-weight: 500;
+}
+
+.custom {
+  color: red;
+  padding: 3px;
+  font-size: large;
+}
+.mb-3 input {
+  padding: 1px;
+  font-size: large;
+  margin: 5px;
+}
