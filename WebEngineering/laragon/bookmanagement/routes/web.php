@@ -14,10 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('book.home');
-});
-Route::get('/home', [BookController::class,'index'])->name('book.home');
+// Route::get('/', function () {
+//     return view('book.home');
+// });
+Route::get('/', [BookController::class,'index'])->name('book.home');
+Route::get('/home', [BookController::class,'index'])->name('book.index');
 Route::get('/addbook', [BookController::class,'create'])->name('book.create');
 Route::post('/addbook', [BookController::class,'store'])->name('book.store');
 Route::get('/home/{book}/edit', [BookController::class,'edit'])->name('book.edit');

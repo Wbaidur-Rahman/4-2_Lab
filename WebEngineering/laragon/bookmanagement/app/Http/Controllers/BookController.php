@@ -9,6 +9,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 use App\Models\Book;
 
+
 class BookController extends Controller
 {
     /**
@@ -16,11 +17,14 @@ class BookController extends Controller
      */
     public function index()
     {
-        //
+        // Retrieve all books
         $books = Book::all();
-        
-        return view('book.home', ['books'=> $books]);
+
+        // Pass the books variable to the view
+        return view('book.home', ['books' => $books]);
     }
+
+
 
     /**
      * Show the form for creating a new resource.

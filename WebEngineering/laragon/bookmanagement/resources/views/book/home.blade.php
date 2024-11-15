@@ -37,26 +37,30 @@
                <th scope="col">Actions</th>
             </tr>
          </thead>
-         <tbody>
-            @foreach ($books as $key => $book )
-               <tr>
-                  <td>{{(int)$key+1}}</td>
-                  <td>{{$book->title}}</td>
-                  <td>{{$book->author}}</td>
-                  <td>{{$book->isbn}}</td>
-                  <td>{{$book->pages}}</td>
-                  <td style="display: inline-block">
-                     <a href="{{route('book.edit', ['book' => $book])}}" class="btn btn-primary">Edit</a>
-                     
-                     <form method="post" action="{{route('book.destroy', ['book' => $book])}}"  style="display: inline-block">
-                        @csrf
-                        @method('delete')
-                        <button type="submit" class="btn btn-danger">Delete</button>
-                     </form>
-                  </td>
-               </tr>
-            @endforeach
-         </tbody>
+         @if($books->isEmpty())
+            <p>No books available.</p>
+         @else
+            <tbody>
+               @foreach($books as $key => $book )
+                  <tr>
+                     <td>{{(int)$key+1}}</td>
+                     <td>{{$book->title}}</td>
+                     <td>{{$book->author}}</td>
+                     <td>{{$book->isbn}}</td>
+                     <td>{{$book->pages}}</td>
+                     <td style="display: inline-block">
+                        <a href="{{route('book.edit', ['book' => $book])}}" class="btn btn-primary">Edit</a>
+                        
+                        <form method="post" action="{{route('book.destroy', ['book' => $book])}}"  style="display: inline-block">
+                           @csrf
+                           @method('delete')
+                           <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                     </td>
+                  </tr>
+               @endforeach
+            </tbody>
+         @endif
       </table>
       <a href="./addbook" class="btn btn-success">Add a book</a>
    </div>
